@@ -1,5 +1,10 @@
-import { Flex } from "@chakra-ui/react";
+import { Center } from "@chakra-ui/react";
+import { LoadingPage } from "../../components/LoadingPage";
 
 export const HomePage = () => {
-  return <Flex>HomePage</Flex>;
+  return (
+    <Center minHeight="100vh" minW="100%">
+      <LoadingPage />
+    </Center>
+  );
 };
