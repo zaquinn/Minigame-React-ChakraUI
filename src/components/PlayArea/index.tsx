@@ -20,7 +20,7 @@ export const PlayArea = () => {
         direction="column"
       >
         <Center
-          h="80%"
+          h="85%"
           background="radial-gradient(62.76% 66.42% at 50.05% 44.95%, #323B45 0%, rgba(50, 59, 69, 0) 100%);"
           px="20px"
         >
@@ -77,7 +77,7 @@ export const PlayArea = () => {
             </Flex>
           </Flex>
         </Center>
-        <Flex h="20%" borderTop="1.5px solid" borderColor="gray.400">
+        <Flex h="15%" borderTop="1.5px solid" borderColor="gray.400">
           <Grid templateColumns="repeat(3, 1fr)" gap={2} w="100%">
             <GridItem>
               <Flex

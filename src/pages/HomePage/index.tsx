@@ -1,13 +1,15 @@
-import { Center, Flex } from "@chakra-ui/react";
+import { Button, Center, Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { LoadingPage } from "../../components/LoadingPage";
 import { usePlayers } from "../../contexts/PlayerContext";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { PlayArea } from "../../components/PlayArea";
+import { Card } from "../../components/Card";
 
 export const HomePage = () => {
-  const { players, loadPlayers } = usePlayers();
+  const { players, loadPlayers, randomPlayers, randomizePlayers } =
+    usePlayers();
 
   const [loading, setLoading] = useState(true);
 
@@ -21,6 +23,14 @@ export const HomePage = () => {
       ) : (
         <Flex direction="column" w="100%" minH="100vh" justify="space-between">
           <Header />
+          <Button
+            onClick={() => {
+              randomizePlayers();
+              console.log(randomPlayers);
+            }}
+          >
+            Teste
+          </Button>
           <PlayArea />
           <Footer />
         </Flex>

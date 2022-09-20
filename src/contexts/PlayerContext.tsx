@@ -30,6 +30,8 @@ interface IPlayer {
 interface IPlayerContextData {
   players: IPlayer[];
   loadPlayers: () => Promise<void>;
+  randomizePlayers: () => void;
+  randomPlayers: IPlayer[][];
 }
 
 const PlayerContext = createContext<IPlayerContextData>(
@@ -47,6 +49,7 @@ const usePlayers = () => {
 
 const PlayerProvider = ({ children }: IPlayerProviderProps) => {
   const [players, setPlayers] = useState<IPlayer[]>([]);
+  const [randomPlayers, setRandomPlayers] = useState<IPlayer[][]>([]);
 
   const loadPlayers = useCallback(async () => {
     try {
@@ -57,8 +60,32 @@ const PlayerProvider = ({ children }: IPlayerProviderProps) => {
     }
   }, []);
 
+  const randomizePlayers = () => {
+    const playersCopy = [...players];
+
+    const randomized = playersCopy
+      .map((value) => ({ value, sort: Math.random() }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(({ value }) => value);
+
+    const makePairs = randomized.reduce(function (
+      result: IPlayer[][],
+      value,
+      index,
+      array
+    ) {
+      if (index % 2 === 0) result.push(array.slice(index, index + 2));
+      return result;
+    },
+    []);
+
+    setRandomPlayers(makePairs);
+  };
+
   return (
-    <PlayerContext.Provider value={{ players, loadPlayers }}>
+    <PlayerContext.Provider
+      value={{ players, loadPlayers, randomizePlayers, randomPlayers }}
+    >
       {children}
     </PlayerContext.Provider>
   );
