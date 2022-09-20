@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const api = axios.create({
-  baseURL: "http://minhaapi.com",
+  baseURL: "https://backend-minigame-deploy.herokuapp.com",
 });

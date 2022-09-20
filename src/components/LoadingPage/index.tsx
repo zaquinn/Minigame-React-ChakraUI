@@ -1,6 +1,5 @@
 import { Center, Flex, Image, keyframes } from "@chakra-ui/react";
 import trevo from "../../assets/trevo.svg";
-import { motion } from "framer-motion";
 
 export const LoadingPage = () => {
   const animationKeyFrames = keyframes`
@@ -9,6 +8,7 @@ export const LoadingPage = () => {
   const animation1 = `${animationKeyFrames} .6s ease-in-out alternate infinite;`;
   const animation2 = `${animationKeyFrames} .6s ease-in-out alternate .2s infinite`;
   const animation3 = `${animationKeyFrames} .6s ease-in-out alternate .4s infinite`;
+
   return (
     <Center flexDirection="column">
       <Image src={trevo} mixBlendMode="hard-light" h="132px" w="132px" />
