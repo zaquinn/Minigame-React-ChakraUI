@@ -6,10 +6,20 @@ import {
   Text,
   Grid,
   GridItem,
+  keyframes,
 } from "@chakra-ui/react";
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 
 export const PlayArea = () => {
+  const animationKeyFrames = keyframes`
+  from {
+    background-size:95% 100%;
+  }
+  to {
+    background-size:110% 100%;
+  }
+  `;
+  const animation = `${animationKeyFrames} 3s linear infinite alternate;`;
   return (
     <Flex w="100%" h="75vh" px={["3vw", "10vw"]}>
       <Flex
@@ -21,8 +31,12 @@ export const PlayArea = () => {
       >
         <Center
           h="85%"
-          background="radial-gradient(62.76% 66.42% at 50.05% 44.95%, #323B45 0%, rgba(50, 59, 69, 0) 100%);"
+          //   background="radial-gradient(62.76% 66.42% at 50.05% 44.95%, #323B45 0%, rgba(50, 59, 69, 0) 100%);"
+          background="radial-gradient(50.05% 163.35% at 50.05% 50.09%, #00BA75 0%, #0F1923 100%);"
+          backgroundRepeat="no-repeat"
+          backgroundPosition="center"
           px="20px"
+          animation={animation}
         >
           <Flex
             w={["300px", "300px", "352px"]}

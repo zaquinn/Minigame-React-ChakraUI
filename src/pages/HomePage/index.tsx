@@ -23,14 +23,6 @@ export const HomePage = () => {
       ) : (
         <Flex direction="column" w="100%" minH="100vh" justify="space-between">
           <Header />
-          <Button
-            onClick={() => {
-              randomizePlayers();
-              console.log(randomPlayers);
-            }}
-          >
-            Teste
-          </Button>
           <PlayArea />
           <Footer />
         </Flex>
