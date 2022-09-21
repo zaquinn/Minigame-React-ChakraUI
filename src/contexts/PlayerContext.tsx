@@ -32,6 +32,7 @@ interface IPlayerContextData {
   loadPlayers: () => Promise<void>;
   randomizePlayers: () => void;
   randomPlayers: IPlayer[][];
+  setRandomPlayers: (value: IPlayer[][]) => void;
 }
 
 const PlayerContext = createContext<IPlayerContextData>(
@@ -84,7 +85,13 @@ const PlayerProvider = ({ children }: IPlayerProviderProps) => {
 
   return (
     <PlayerContext.Provider
-      value={{ players, loadPlayers, randomizePlayers, randomPlayers }}
+      value={{
+        players,
+        loadPlayers,
+        randomizePlayers,
+        randomPlayers,
+        setRandomPlayers,
+      }}
     >
       {children}
     </PlayerContext.Provider>

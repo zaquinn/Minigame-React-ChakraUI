@@ -1,15 +1,13 @@
-import { Button, Center, Flex } from "@chakra-ui/react";
+import { Center, Flex } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { LoadingPage } from "../../components/LoadingPage";
 import { usePlayers } from "../../contexts/PlayerContext";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
 import { PlayArea } from "../../components/PlayArea";
-import { Card } from "../../components/Card";
 
 export const HomePage = () => {
-  const { players, loadPlayers, randomPlayers, randomizePlayers } =
-    usePlayers();
+  const { loadPlayers } = usePlayers();
 
   const [loading, setLoading] = useState(true);
 
